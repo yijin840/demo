@@ -62,6 +62,7 @@
                 <rocketmq.version>2.2.1</rocketmq.version>
                 <redisson.version>3.16.4</redisson.version>
                 <rocketmq-cli.version>4.9.2</rocketmq-cli.version>
+                <hutool.version>5.7.17</hutool.version>
             </properties>
         </profile>
     </profiles>
@@ -246,6 +247,11 @@
             <groupId>org.demo</groupId>
             <artifactId>demo-common</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
