@@ -1,0 +1,32 @@
+server:
+  port: 8070
+my:
+  config:
+    name: safsadf
+    value: 123
+    url: test
+    rocketStatus: false
+
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 30.43.41.57
+    port: 6379
+## NameServer地址
+#rocketmq:
+#  name-server: 127.0.0.1:9876
+## 默认的消息组
+#  producer:
+#    group: springBootGroup
+#  consumer:
+#    topic: TestTopic
+management:
+  health:
+    elasticsearch:
+      enabled: false

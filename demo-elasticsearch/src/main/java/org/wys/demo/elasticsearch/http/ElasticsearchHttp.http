@@ -1,0 +1,9 @@
+##可视化页面
+
+
+PUT http://localhost:9200/customer/_doc/1
+Content-Type: application/json;charset=UTF-8
+
+{
+  "name": "John Doe"
+}
