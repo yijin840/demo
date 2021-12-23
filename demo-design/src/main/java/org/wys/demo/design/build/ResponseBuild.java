@@ -24,7 +24,7 @@ public class ResponseBuild {
         return this;
     }
 
-    public Response get() {
+    public Response build() {
         return this.response;
     }
 }

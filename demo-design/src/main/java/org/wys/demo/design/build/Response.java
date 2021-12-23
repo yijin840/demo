@@ -13,6 +13,6 @@ public class Response {
 
     private Object data;
 
-    private Integer Code;
+    private Integer code;
 
 }

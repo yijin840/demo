@@ -14,7 +14,7 @@ public class BuildDemoMain {
         Response res = new ResponseBuild()
                 .buildCode(200)
                 .buildData(null)
-                .buildMsg(responseCode.getMsg()).get();
+                .buildMsg(responseCode.getMsg()).build();
         log.info("res ===> {}" , res);
         log.info("res success ===> {}", ResponseUtil.fail(401));
     }
