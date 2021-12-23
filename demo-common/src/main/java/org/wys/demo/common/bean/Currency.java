@@ -1,6 +1,7 @@
 package org.wys.demo.common.bean;
 
 import lombok.Data;
+import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.math.MathContext;
  * @date 2021/12/20
  */
 @Data
+@ToString
 public class Currency {
 
     @NotNull

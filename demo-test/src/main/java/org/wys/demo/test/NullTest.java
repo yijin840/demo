@@ -5,7 +5,10 @@ import org.checkerframework.checker.units.qual.C;
 import org.jetbrains.annotations.NotNull;
 import org.wys.demo.common.bean.Currency;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  * @author wys
@@ -13,9 +16,16 @@ import java.math.BigDecimal;
  */
 public class NullTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         Currency currency = new Currency();
-        currency.intValue(new BigDecimal("123"));
-        System.out.println(currency.getValue());
+//        Method[] methods = currency.getClass().getMethods();
+//        for (Method method : methods) {
+//            if(method.getName().startsWith("set") && method.getName().endsWith("Value")) {
+//                Arrays.stream(method.getParameterTypes()).forEach(System.out::println);
+//                method.invoke(currency,new BigDecimal("1"));
+//                break;
+//            }
+//        }
+        System.out.println(currency);
     }
 }
