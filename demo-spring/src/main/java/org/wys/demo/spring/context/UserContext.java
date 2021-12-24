@@ -2,6 +2,8 @@ package org.wys.demo.spring.context;
 
 import org.wys.demo.spring.bean.User;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Map;
  */
 public class UserContext {
 
-    private static final ThreadLocal<User> USER_LOCAL = new ThreadLocal<>();;
+    private static final ThreadLocal<User> USER_LOCAL = new ThreadLocal<>();
 
     private UserContext() {
 
@@ -21,7 +23,7 @@ public class UserContext {
      *
      * @return 当前用户信息
      */
-    public static User getUser(String username) {
+    public static User getUser() {
         return USER_LOCAL.get();
     }
 
