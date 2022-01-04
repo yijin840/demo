@@ -30,6 +30,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.wys.demo.test.PostConstructorMain;
 import org.wys.demo.test.RedisTest;
 
+import java.util.List;
+
 
 /**
  * @author wys
@@ -50,6 +52,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     private final ApplicationContext applicationContext;
     private final UserService userService;
     private final RedisTest redisTest;
+    private final List<StrategyDemo> strategyDemoList;
 
     public static void main(String[] args) {
 //        NamesrvStartup.main(args);
@@ -59,6 +62,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        strategyDemoList.forEach(item-> System.out.println(item.getType()));
         redisTest.test();
         userService.register("龙哥");
     }
