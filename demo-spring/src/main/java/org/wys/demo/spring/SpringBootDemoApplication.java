@@ -17,6 +17,8 @@ import org.wys.demo.design.strategy.common.SubtractCalculateStrategy;
 import org.wys.demo.design.strategy.dict.CalculateDict;
 import org.wys.demo.design.strategy.request.CalculateRequest;
 import org.wys.demo.spring.SpringCanonCustomApplicationInitializer;
+import org.wys.demo.spring.listen.UserEvent;
+import org.wys.demo.spring.listen.UserPublish;
 import org.wys.demo.spring.publish.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.wys.demo.test.PostConstructorMain;
 import org.wys.demo.test.RedisTest;
 
+import javax.swing.*;
 import java.util.List;
 
 
@@ -53,6 +56,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     private final UserService userService;
     private final RedisTest redisTest;
     private final List<StrategyDemo> strategyDemoList;
+    private final UserPublish userPublish;
 
     public static void main(String[] args) {
 //        NamesrvStartup.main(args);
@@ -65,6 +69,8 @@ public class SpringBootDemoApplication implements ApplicationRunner {
         strategyDemoList.forEach(item-> System.out.println(item.getType()));
         redisTest.test();
         userService.register("龙哥");
+        UserEvent userEvent = new UserEvent("object", "aaa","bbb");
+        userPublish.addUser(userEvent);
     }
 }
 

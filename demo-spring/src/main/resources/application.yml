@@ -18,6 +18,10 @@ spring:
   redis:
     host: localhost
     port: 6379
+
+  context:
+    listener:
+      classes: org.wys.demo.spring.event.UserEvent
 ## NameServer地址
 #rocketmq:
 #  name-server: 127.0.0.1:9876
