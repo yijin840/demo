@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  */
 public class Ddos {
 
-    public static void main(String[] args) {
+    public void testDdos() {
         //利用线程池创建1000个线程
         ExecutorService es = Executors.newFixedThreadPool(1000);
         MyThread mythread = new MyThread();
@@ -23,7 +23,6 @@ public class Ddos {
             es.execute(thread);
         }
     }
-
     static class MyThread implements Runnable {
         public void run() {
             while (true) {

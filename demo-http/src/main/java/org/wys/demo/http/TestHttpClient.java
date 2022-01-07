@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
  * @date 2020/12/22 5:05 下午
  */
 public class TestHttpClient {
-    public static void main(String[] args) throws IOException {
+    public void testHttpClient() throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
         HttpUriRequest request = new HttpGet("https://www.baidu.com");
         HttpResponse response = client.execute(request);

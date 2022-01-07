@@ -6,7 +6,4 @@ package org.wys.demo.http;
  */
 public class HttpClientBuilder {
 
-    public static void main(String[] args) {
-
-    }
 }

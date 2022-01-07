@@ -37,7 +37,7 @@ public class OkHttpDemo {
             Executors.defaultThreadFactory(),
             new ThreadPoolExecutor.AbortPolicy());
 
-    public static void main(String[] args) throws IOException {
+    public void testOkHttpDemo() throws IOException {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Document document = Jsoup.connect("https://www.baidu.com").get();
