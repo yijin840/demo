@@ -29,6 +29,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.wys.demo.spring.service.MyService;
 import org.wys.demo.test.PostConstructorMain;
 import org.wys.demo.test.RedisTest;
 
@@ -57,6 +58,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     private final RedisTest redisTest;
     private final List<StrategyDemo> strategyDemoList;
     private final UserPublish userPublish;
+    private final MyService myService;
 
     public static void main(String[] args) {
 //        NamesrvStartup.main(args);
@@ -71,7 +73,9 @@ public class SpringBootDemoApplication implements ApplicationRunner {
         userService.register("龙哥");
         UserEvent userEvent = new UserEvent("object", "aaa","bbb");
         userPublish.addUser(userEvent);
+        myService.doHandler();
     }
+
 }
 
 

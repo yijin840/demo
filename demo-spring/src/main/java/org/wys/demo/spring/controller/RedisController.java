@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wys.demo.common.utils.RedisUtil;
+import org.wys.demo.spring.config.MyConfiguration;
+import org.wys.demo.spring.service.MyService;
 
 /**
  * @author wys
@@ -19,12 +21,15 @@ public class RedisController {
 
     private final Redisson redisson;
     private final RedisUtil redisUtil;
+    private final MyConfiguration myConfiguration;
+//    private final MyService myService;
 
     @GetMapping("/batchInsertData")
     public String batchInsertData() {
+
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 1; i++) {
             redisUtil.set("name" + i, String.valueOf(i));
         }
         stopWatch.stop();

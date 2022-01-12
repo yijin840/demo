@@ -21,4 +21,8 @@ public class MyConfiguration {
 
     private Boolean rocketStatus;
 
+    private Boolean isAccess;
+
+    private Boolean isMock;
+
 }

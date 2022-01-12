@@ -6,6 +6,8 @@ my:
     value: 123
     url: test
     rocketStatus: false
+    isAccess: true
+    isMock: true
 
 spring:
   datasource:
