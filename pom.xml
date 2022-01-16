@@ -65,6 +65,7 @@
                 <hutool.version>5.7.17</hutool.version>
                 <poi.version>5.1.0</poi.version>
                 <gson.version>2.8.9</gson.version>
+                <kevinsawicki.version>5.0</kevinsawicki.version>
             </properties>
         </profile>
     </profiles>
@@ -259,6 +260,11 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kevinsawicki</groupId>
+            <artifactId>http-request</artifactId>
+            <version>${kevinsawicki.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
