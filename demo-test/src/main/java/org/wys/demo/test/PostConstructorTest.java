@@ -22,7 +22,7 @@ import java.util.Map;
  * @author wys
  * @date 2021/11/9
  */
-public class PostConstructorMain {
+public class PostConstructorTest {
 
     public static void main(String[] args) {
 //        NamesrvStartup.main0(args);

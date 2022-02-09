@@ -12,7 +12,8 @@ import java.io.OutputStream;
 public class OutputStreamTest {
 
     public static void main(String[] args) throws IOException {
-        OutputStream outputStream = "123123abcabc";
+        String string = "123123abcabc";
+        OutputStream outputStream = new ByteArrayOutputStream();
         byte[] bytes = new byte[1024];
         outputStream.write(bytes);
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
