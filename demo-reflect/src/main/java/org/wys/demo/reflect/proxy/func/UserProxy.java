@@ -9,4 +9,8 @@ public class UserProxy implements ProxyFunction {
     public int getResult() {
         return 0;
     }
+
+    public String process(String param) {
+        return param;
+    }
 }

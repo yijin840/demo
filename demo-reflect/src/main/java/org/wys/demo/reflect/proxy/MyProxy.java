@@ -14,7 +14,6 @@ public class MyProxy {
                 new Class[]{ProxyFunction.class},
                 (o, method, objects) -> method.invoke(o, objects));
         System.out.println(proxy.getResult());
-
     }
 
 
