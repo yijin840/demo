@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery: #Nacos注册中心地址
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #开启注册中心路由功能
+      #          lower-case-service-id: true
+      routes:
+        - id: mini-api
+          uri: lb://glorious-mini-api
+          predicates:
+            - Path=/mini/**
+          filters:
+            - StripPrefix=1
+        - id: system-api
+          uri: lb://glorious-system-api
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix=1
