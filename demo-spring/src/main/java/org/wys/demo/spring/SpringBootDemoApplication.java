@@ -1,6 +1,7 @@
 package org.wys.demo.spring;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.wys.demo.spring.config.MyConfiguration;
@@ -34,6 +35,7 @@ import java.util.List;
                 @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.wys.demo.mq*")
         })
 @RequiredArgsConstructor
+@EnableDiscoveryClient
 public class SpringBootDemoApplication implements ApplicationRunner {
 
     private final MyConfiguration myConfiguration;
