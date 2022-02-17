@@ -1,9 +1,0 @@
-spring:
-  cloud:
-    nacos:
-      discovery: #Nacos注册中心地址
-        server-addr: 127.0.0.1:8848
-    sentinel:
-      transport:
-        port: 8719
-        dashboard: localhost:8880

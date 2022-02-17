@@ -25,12 +25,11 @@
         <module>demo-common</module>
         <module>demo-db</module>
         <module>demo-algorithm</module>
-        <module>gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.2.13.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <profiles>
@@ -67,8 +66,8 @@
                 <poi.version>5.1.0</poi.version>
                 <gson.version>2.8.9</gson.version>
                 <kevinsawicki.version>5.0</kevinsawicki.version>
-                <spring-cloud.version>3.1.0</spring-cloud.version>
-                <spring-cloud-alibaba.version>2.1.4.RELEASE</spring-cloud-alibaba.version>
+                <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+                <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
                 <spring-boot.version>2.2.13.RELEASE</spring-boot.version>
             </properties>
         </profile>
@@ -271,26 +270,23 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-actuator</artifactId>
                 <version>${spring-boot.version}</version>
-            </dependency>
-            <!--nacos配置中心客户端-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-            </dependency>
-            <!--nacos服务注册客户端-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.demo</groupId>

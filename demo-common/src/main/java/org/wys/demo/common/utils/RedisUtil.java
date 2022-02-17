@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class RedisUtil {
 
-    private final Redisson redisson;
+    private final RedissonClient redisson;
 
     public void set(String key, String value) {
         redisson.getBucket(key).set(value);

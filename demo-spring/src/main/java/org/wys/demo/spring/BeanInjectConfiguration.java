@@ -17,5 +17,12 @@ import org.wys.demo.spring.context.UserContext;
 @Slf4j
 public class BeanInjectConfiguration {
 
+    @Bean
+    public RedissonClient redisson() {
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
+
+        return Redisson.create(config);
+    }
 
 }
