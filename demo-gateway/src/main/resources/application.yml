@@ -1,17 +1,8 @@
 server:
-  port: 8070
-my:
-  config:
-    name: safsadf
-    value: 123
-    url: test
-    rocketStatus: false
-    isAccess: true
-    isMock: true
-
+  port: 8078
 spring:
   application:
-    name: nacos-provider
+    name: gateway-provider
   datasource:
     username: root
     url: jdbc:mysql://127.0.0.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
@@ -24,16 +15,11 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-    gateway:
-      routes:
-        - id: url-proxy-1
-          uri: https://blog.csdn.net
-          predicates:
-            - Path=/csdn
 
-  context:
-    listener:
-      classes: org.wys.demo.spring.event.UserEvent
+    gateway:
+      discovery:
+        locator:
+          enabled: true
   redis:
     host: localhost
     port: 6379

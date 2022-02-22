@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.wys.demo.spring.config.MyConfiguration;
 import org.wys.demo.design.strategy.CalculateHandler;
 import org.wys.demo.spring.listen.UserEvent;
@@ -36,6 +37,7 @@ import java.util.List;
         })
 @RequiredArgsConstructor
 @EnableDiscoveryClient
+@EnableWebMvc
 public class SpringBootDemoApplication implements ApplicationRunner {
 
     private final MyConfiguration myConfiguration;

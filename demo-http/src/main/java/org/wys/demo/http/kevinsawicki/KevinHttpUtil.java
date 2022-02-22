@@ -25,7 +25,7 @@ public class KevinHttpUtil {
     }
 
     private void getRead() {
-        String body = HttpRequest.get("https://youtube.com").body();
+        String body = HttpRequest.get("https://twitch.com").body();
         System.out.println(body);
     }
     public static void main(String[] args) {
