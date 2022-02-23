@@ -1,7 +1,6 @@
 package org.wys.demo.spring;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -36,7 +35,7 @@ import java.util.List;
                 @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.wys.demo.mq*")
         })
 @RequiredArgsConstructor
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableWebMvc
 public class SpringBootDemoApplication implements ApplicationRunner {
 
