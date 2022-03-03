@@ -57,7 +57,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         strategyDemoList.forEach(item-> System.out.println(item.getType()));
-        redisTest.test();
+        redisTest.script();
         userService.register("龙哥");
         UserEvent userEvent = new UserEvent("object", "aaa","bbb");
         userPublish.addUser(userEvent);
