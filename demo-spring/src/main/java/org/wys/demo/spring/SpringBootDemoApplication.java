@@ -8,7 +8,8 @@ import org.wys.demo.spring.config.MyConfiguration;
 import org.wys.demo.design.strategy.CalculateHandler;
 import org.wys.demo.spring.listen.UserEvent;
 import org.wys.demo.spring.listen.UserPublish;
-import org.wys.demo.spring.publish.UserService;
+import org.wys.demo.spring.publish.EventManager;
+import org.wys.demo.spring.publish.event.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -47,6 +48,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     private final List<StrategyDemo> strategyDemoList;
     private final UserPublish userPublish;
     private final MyService myService;
+    private final EventManager eventManager;
 
     public static void main(String[] args) {
 //        NamesrvStartup.main(args);
@@ -59,8 +61,8 @@ public class SpringBootDemoApplication implements ApplicationRunner {
         strategyDemoList.forEach(item-> System.out.println(item.getType()));
         redisTest.script();
         userService.register("龙哥");
-        UserEvent userEvent = new UserEvent("object", "aaa","bbb");
-        userPublish.addUser(userEvent);
+        userPublish.addUser(new UserEvent("object", "aaa","bbb"));
+        eventManager.doHandler();
         myService.doHandler();
     }
 

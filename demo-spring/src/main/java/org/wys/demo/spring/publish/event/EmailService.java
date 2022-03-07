@@ -1,4 +1,4 @@
-package org.wys.demo.spring.publish;
+package org.wys.demo.spring.publish.event;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
