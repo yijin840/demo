@@ -16,16 +16,14 @@ import java.util.Arrays;
  */
 public class NullTest {
 
-    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
-        Currency currency = new Currency();
-//        Method[] methods = currency.getClass().getMethods();
-//        for (Method method : methods) {
-//            if(method.getName().startsWith("set") && method.getName().endsWith("Value")) {
-//                Arrays.stream(method.getParameterTypes()).forEach(System.out::println);
-//                method.invoke(currency,new BigDecimal("1"));
-//                break;
-//            }
-//        }
-        System.out.println(currency);
+    public static void main(String[] args) {
+        Model model = new Model();
+        System.out.println(model.getA());
+        System.out.println(model.isSuccess());
+    }
+    @Data
+    static class Model {
+        private int a;
+        private boolean isSuccess;
     }
 }
