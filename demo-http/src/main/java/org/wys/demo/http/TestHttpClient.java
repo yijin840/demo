@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 public class TestHttpClient {
     public void testHttpClient() throws IOException {
         HttpClient client = HttpClientBuilder.create().build();
-        HttpUriRequest request = new HttpGet("https://www.baidu.com");
+        HttpUriRequest request = new HttpGet("http://yijin840.top/archives/netty-ji-chu");
         HttpResponse response = client.execute(request);
         InputStream inputStream = response.getEntity().getContent();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -28,5 +28,10 @@ public class TestHttpClient {
             sb.append(temp).append('\n');
         }
         System.out.println(sb);
+    }
+
+    public static void main(String[] args) throws IOException {
+        TestHttpClient testHttpClient = new TestHttpClient();
+        testHttpClient.testHttpClient();
     }
 }

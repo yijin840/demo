@@ -19,7 +19,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.wys.demo.spring.service.MyService;
-import org.wys.demo.test.RedisTest;
 
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     private final CalculateHandler calculateHandler;
     private final ApplicationContext applicationContext;
     private final UserService userService;
-    private final RedisTest redisTest;
+//    private final RedisTest redisTest;
     private final List<StrategyDemo> strategyDemoList;
     private final UserPublish userPublish;
     private final MyService myService;
@@ -59,7 +58,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         strategyDemoList.forEach(item-> System.out.println(item.getType()));
-        redisTest.script();
+//        redisTest.script();
         userService.register("龙哥");
         userPublish.addUser(new UserEvent("object", "aaa","bbb"));
         eventManager.doHandler();

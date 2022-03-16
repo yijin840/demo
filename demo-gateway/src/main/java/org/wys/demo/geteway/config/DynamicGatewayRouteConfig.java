@@ -44,7 +44,7 @@ public class DynamicGatewayRouteConfig implements ApplicationEventPublisherAware
 
     private ApplicationEventPublisher applicationEventPublisher;
 
-    private static final List<String> ROUTE_LIST = new ArrayList<String>();
+    private static final List<String> ROUTE_LIST = new ArrayList<>();
 
     @PostConstruct
     public void dynamicRouteByNacosListener() {

