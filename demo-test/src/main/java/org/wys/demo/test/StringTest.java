@@ -1,7 +1,12 @@
 package org.wys.demo.test;
 
+import com.google.common.collect.Lists;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author wys
@@ -55,5 +60,4 @@ public class StringTest {
             }
             System.out.println();
         }
-    }
 }
