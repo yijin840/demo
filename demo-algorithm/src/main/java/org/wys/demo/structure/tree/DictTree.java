@@ -35,19 +35,22 @@ public class DictTree {
      */
     public void buildTree(String s) {
         DictTree head = null;
+        int cnt = 0;
         if (this.getHeads() != null && this.heads.size() > 0) {
             for (DictTree node : heads) {
                 //如果存在
                 if (node.getNode() == s.charAt(0)) {
                     head = node;
+                    ++cnt;
                     break;
                 }
             }
         }
-        buildTree(null, head, s, 0);
+        buildTree(head, s, cnt);
     }
 
-    private void buildTree(DictTree fatherNode, DictTree node, String s, int cnt) {
+    private void buildTree(DictTree node, String s, int cnt) {
+        if (cnt >= s.length()) return;
         int index = -1;
         DictTree childNode = new DictTree();
         childNode.setNode(s.charAt(cnt));
@@ -60,21 +63,23 @@ public class DictTree {
                     }
                 }
             }
-        }
-        if (index == -1) {
-            List<DictTree> nextNodes = new ArrayList<>();
-            if (fatherNode == null) {
+            if (index == -1) {
+                List<DictTree> nextNodes = new ArrayList<>();
                 if (node.getNext() == null) {
                     node.setNext(nextNodes);
-                    node.getNext().add(childNode);
-                    buildTree(node, node.getNext().get(0), s, ++cnt);
                 }
-            } else if (fatherNode.getNext() == null) {
-                fatherNode.setNext(nextNodes);
-                fatherNode.setNext(nextNodes);
-                fatherNode.getNext().add(childNode);
-                buildTree(fatherNode, fatherNode.getNext().get(0), s, ++cnt);
+                node.getNext().add(childNode);
+                buildTree(node.getNext().get(0), s, ++cnt);
+            } else {
+                buildTree(node.getNext().get(index), s, ++cnt);
             }
+        } else {
+            if (this.getHeads() == null) {
+                List<DictTree> heads = new ArrayList<>();
+                this.setHeads(heads);
+            }
+            this.getHeads().add(childNode);
+            buildTree(childNode, s, ++cnt);
         }
     }
 
@@ -83,28 +88,23 @@ public class DictTree {
             return;
         }
         for (DictTree head : this.getHeads()) {
-            System.out.print("head: " + head.getNode() + " ");
-            if (head.getNext() != null && head.getNext().size() > 0) {
-                for (DictTree node : head.getNext()) {
-                    printNode(node);
-                }
-            }
+            printNode(head);
         }
     }
 
     private void printNode(DictTree node) {
+        System.out.print(node.getNode());
         if (node.getNext() == null || node.getNext().size() == 0) {
             return;
         }
-        System.out.print(node.getNode());
         for (DictTree tree : node.getNext()) {
             printNode(tree);
         }
     }
 
     public static void main(String[] args) {
-        DictTree dictTree = new DictTree("abc");
-        dictTree.buildTree("abd");
+        DictTree dictTree = new DictTree("abcaabcd");
+        dictTree.buildTree("abdaaa");
         dictTree.printTree();
     }
 
