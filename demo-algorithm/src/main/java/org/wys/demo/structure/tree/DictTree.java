@@ -1,10 +1,8 @@
-package org.wys.demo.tree;
+package org.wys.demo.structure.tree;
 
-import cn.hutool.core.lang.Dict;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,39 +48,33 @@ public class DictTree {
     }
 
     private void buildTree(DictTree fatherNode, DictTree node, String s, int cnt) {
+        int index = -1;
+        DictTree childNode = new DictTree();
+        childNode.setNode(s.charAt(cnt));
         if (Objects.nonNull(node)) {
-            if (s.length() > cnt) {
-                int index = -1;
-                if (node.getNext() != null && node.getNext().size() > 0) {
-                    for (int j = 0; j < node.getNext().size(); j++) {
-                        if (node.getNext().get(j).getNode() == s.charAt(cnt)) {
-                            index = j;
-                            break;
-                        }
+            if (node.getNext() != null && node.getNext().size() > 0) {
+                for (int j = 0; j < node.getNext().size(); j++) {
+                    if (node.getNext().get(j).getNode() == s.charAt(cnt)) {
+                        index = j;
+                        break;
                     }
-                }
-                DictTree childNode = new DictTree();
-                childNode.setNode(s.charAt(cnt));
-                if (index == -1) {
-                    List<DictTree> nextNodes = new ArrayList<>();
-                    if (fatherNode == null) {
-                        if (node.getNext() == null) {
-                            node.setNext(nextNodes);
-                            node.getNext().add(childNode);
-                            buildTree(node, node.getNext().get(0), s, ++cnt);
-                        }
-                    } else if (fatherNode.getNext() == null) {
-                        fatherNode.setNext(nextNodes);
-                        fatherNode.setNext(nextNodes);
-                        fatherNode.getNext().add(childNode);
-                        buildTree(fatherNode, fatherNode.getNext().get(0), s, ++cnt);
-                    }
-                } else {
-                    buildTree(node, node.getNext().get(index), s, ++cnt);
                 }
             }
-        } else {
-
+        }
+        if (index == -1) {
+            List<DictTree> nextNodes = new ArrayList<>();
+            if (fatherNode == null) {
+                if (node.getNext() == null) {
+                    node.setNext(nextNodes);
+                    node.getNext().add(childNode);
+                    buildTree(node, node.getNext().get(0), s, ++cnt);
+                }
+            } else if (fatherNode.getNext() == null) {
+                fatherNode.setNext(nextNodes);
+                fatherNode.setNext(nextNodes);
+                fatherNode.getNext().add(childNode);
+                buildTree(fatherNode, fatherNode.getNext().get(0), s, ++cnt);
+            }
         }
     }
 

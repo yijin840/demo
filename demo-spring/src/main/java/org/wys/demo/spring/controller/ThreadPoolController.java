@@ -132,8 +132,9 @@ public class ThreadPoolController {
         if (flagList.size() > 0) {
             IS_COMMIT = false;
             log.info("子线程出现异常，开始回滚.....");
+        } else {
+            log.info("子线程没有异常，执行结束！");
         }
-        log.info("子线程没有异常，执行结束！");
         mainCountDownLatch.countDown();
         return "OK";
     }

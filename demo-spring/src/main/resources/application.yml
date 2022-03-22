@@ -14,29 +14,26 @@ spring:
     name: nacos-provider
   datasource:
     username: root
-    url: jdbc:mysql://127.0.0.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://118.31.251.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     driver-class-name: com.mysql.jdbc.Driver
-    password: 123456
+    password: wang123
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-    gateway:
-      routes:
-        - id: url-proxy-1
-          uri: https://blog.csdn.net
-          predicates:
-            - Path=/csdn
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#    gateway:
+#      routes:
+#        - id: url-proxy-1
+#          uri: https://blog.csdn.net
+#          predicates:
+#            - Path=/csdn
 
   context:
     listener:
-      classes: org.wys.demo.spring.event.UserEvent
-#  redis:
-#    host: localhost
-#    port: 6379
+      classes: org.wys.demo.spring.event.UserEven
 
 management:
   health:
