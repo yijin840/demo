@@ -1,5 +1,7 @@
 package org.wys.demo.thread.async;
 
+import lombok.val;
+
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -30,7 +32,7 @@ public class CompletableFutureDemo {
             return sum;
         });
         int sum = c1.join() + c2.join();
-        CompletableFuture<Void> voidCompletableFuture = c1.thenAccept(System.out::println);
+        val voidCompletableFuture = c1.thenAccept(System.out::println);
         System.out.println(sum);
     }
 }
