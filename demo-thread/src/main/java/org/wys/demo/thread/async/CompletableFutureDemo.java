@@ -32,7 +32,7 @@ public class CompletableFutureDemo {
             return sum;
         });
         int sum = c1.join() + c2.join();
-        val voidCompletableFuture = c1.thenAccept(System.out::println);
-        System.out.println(sum);
+        CompletableFuture<Void> voidCompletableFuture = c1.thenAccept(System.out::println);
+        System.out.println(voidCompletableFuture);
     }
 }

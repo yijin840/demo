@@ -47,8 +47,8 @@ public class SortUtil {
     public static void main(String[] args) {
         int[] arr = new int[]{3,5,1,4,6};
         quickSort(0,arr.length-1,arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+        for (int j : arr) {
+            System.out.println(j);
         }
     }
 }
