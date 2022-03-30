@@ -28,7 +28,7 @@ public class JsoupDemo {
             Thread thread = new Thread(JsoupDemo::run, String.valueOf(i));
             thread.start();
             if(i <= 2) {
-                thread.sleep(1000);
+                Thread.sleep(1000);
             }
             thread.join();
         }
