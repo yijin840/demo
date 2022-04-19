@@ -26,6 +26,7 @@
         <module>demo-db</module>
         <module>demo-algorithm</module>
         <module>demo-gateway</module>
+        <module>demo-read</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
