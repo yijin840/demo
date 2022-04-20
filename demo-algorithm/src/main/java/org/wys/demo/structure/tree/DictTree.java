@@ -3,6 +3,7 @@ package org.wys.demo.structure.tree;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,6 +50,51 @@ public class DictTree {
         buildTree(head, s, cnt);
     }
 
+    private void buildHead(String ch) {
+        if (ch == null || ch.equals("") || ch.length() > 1) {
+            return;
+        }
+        DictTree childNode = new DictTree();
+        childNode.setNode(ch.charAt(0));
+        if (this.getHeads() == null) {
+            this.setHeads(new ArrayList<>());
+        }
+        this.getHeads().add(childNode);
+    }
+
+    private boolean isChildTree(String s) {
+        if (s == null || s.equals("") || s.length() <= 1) {
+            return false;
+        }
+        if (this.getHeads() == null || this.getHeads().size() == 0) {
+            return false;
+        }
+        for (DictTree tree : this.getHeads()) {
+            if (s.charAt(0) == tree.node) {
+                return isChildTree(tree, s, 1);
+            }
+        }
+        return false;
+    }
+
+    private boolean isChildTree(DictTree node, String s, int cnt) {
+        if (cnt >= s.length()) {
+            return true;
+        } else {
+            if(node.getNext() == null || node.getNext().size() < 1) {
+                return false;
+            }
+        }
+        if (node.getNext() != null && node.getNext().size() > 0) {
+            for (DictTree tree : node.getNext()) {
+                if (tree.getNode() == s.charAt(cnt)) {
+                    return isChildTree(tree, s, ++cnt);
+                }
+            }
+        }
+        return false;
+    }
+
     private void buildTree(DictTree node, String s, int cnt) {
         if (cnt >= s.length()) return;
         int index = -1;
@@ -83,29 +129,24 @@ public class DictTree {
         }
     }
 
-    private void printTree() {
-        if (this.getHeads() == null || this.getHeads().size() == 0) {
-            return;
-        }
-        for (DictTree head : this.getHeads()) {
-            printNode(head);
-        }
-    }
-
-    private void printNode(DictTree node) {
-        System.out.print(node.getNode());
-        if (node.getNext() == null || node.getNext().size() == 0) {
-            return;
-        }
-        for (DictTree tree : node.getNext()) {
-            printNode(tree);
-        }
-    }
-
     public static void main(String[] args) {
-        DictTree dictTree = new DictTree("abcaabcd");
-        dictTree.buildTree("abdaaa");
-        dictTree.printTree();
+//        Solution solution = new Solution();
+//        solution.longestWord(new String[]{"w", "wo", "wor", "worl", "world"});
+        DictTree dictTree = new DictTree("abcd");
+        System.out.println(dictTree.isChildTree("abc"));
+    }
+
+    static class Solution {
+        private List<String> list = new ArrayList<>();
+
+        public String longestWord(String[] words) {
+            Arrays.sort(words);
+            DictTree tree = new DictTree();
+            for (int i = 0; i < words.length; i++) {
+                tree.buildTree(words[i]);
+            }
+            return null;
+        }
     }
 
 }
