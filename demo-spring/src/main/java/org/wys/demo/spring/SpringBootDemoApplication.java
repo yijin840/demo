@@ -3,6 +3,8 @@ package org.wys.demo.spring;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.core.NamedThreadLocal;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.wys.demo.spring.config.MyConfiguration;
 import org.wys.demo.design.strategy.CalculateHandler;
@@ -63,6 +65,9 @@ public class SpringBootDemoApplication implements ApplicationRunner {
         userService.register("龙哥");
         userPublish.addUser(new UserEvent("object", "aaa","bbb"));
         eventManager.doHandler();
+        NamedThreadLocal<String> namedThreadLocal = new NamedThreadLocal<>("aaa");
+        namedThreadLocal.set("aaa");
+        System.out.println(namedThreadLocal.get());
         myService.doHandler();
     }
 
