@@ -34,10 +34,14 @@ public class MonkeySort {
                 arr[x] = t;
             }
             if(checkOrder(arr)) {
-                System.out.println("第" + l + "次排序。");
+                System.out.print("第" + l + "次排序...  ");
                 break;
             } else {
-                System.out.println("第" + l + "次排序。");
+                System.out.print("第" + l + "次排序...  ");
+                for(int i=0;i<arr.length;i++) {
+                    System.out.print(arr[i] + " ");
+                }
+                System.out.println();
             }
             l++;
         }
