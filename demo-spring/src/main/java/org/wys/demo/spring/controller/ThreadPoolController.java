@@ -144,4 +144,12 @@ public class ThreadPoolController {
         return ResponseUtil.success(Boolean.TRUE);
     }
 
+    @RequestMapping("/oom")
+    public String oom() {
+        String s = "aaa";
+        while(true){
+            byte[] bytes = new byte[1024 * 1024 * 1024];
+            String s1 = new String(bytes);
+        }
+    }
 }
