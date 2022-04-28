@@ -1,6 +1,7 @@
 package org.wys.demo.spring;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.rocketmq.remoting.common.RemotingUtil;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.core.NamedThreadLocal;
@@ -23,6 +24,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.wys.demo.spring.service.MyService;
 import org.wys.demo.test.RedisTest;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -60,6 +62,10 @@ public class SpringBootDemoApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        new HashMap<>()
+        System.setProperty("aaa","123");
+        String localAddress = RemotingUtil.getLocalAddress();
+        System.out.println("local" + localAddress);
         strategyDemoList.forEach(item-> System.out.println(item.getType()));
         redisTest.script();
         userService.register("龙哥");
