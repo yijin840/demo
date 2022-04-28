@@ -12,11 +12,14 @@ import org.redisson.config.Config;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.connection.RedisConfiguration;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.wys.demo.spring.context.UserContext;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author wys
@@ -24,6 +27,7 @@ import org.wys.demo.spring.context.UserContext;
  */
 @Configuration
 @Slf4j
+@Primary
 public class BeanInjectConfiguration {
 
 
