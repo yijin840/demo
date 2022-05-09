@@ -11,15 +11,14 @@ import org.openjdk.jol.info.ClassLayout;
 public class DeviationLock {
 
     public static void main(String[] args) throws InterruptedException {
+        Thread.sleep(5000);
         Object o = new Object();
         log.info("未进入同步代码块，当前Mark Word为:");
         log.info("{}", ClassLayout.parseInstance(o).toPrintable());
-
         synchronized (o) {
             log.info("进入同步代码块，当前Mark Word为:");
             log.info("{}", ClassLayout.parseInstance(o).toPrintable());
         }
-
     }
 
 }
