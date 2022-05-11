@@ -13,6 +13,7 @@ public abstract class LogFactory {
 
     public void debug() {
 
+
     }
 
     public void info() {
