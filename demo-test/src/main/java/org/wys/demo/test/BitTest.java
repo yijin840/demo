@@ -1,5 +1,10 @@
 package org.wys.demo.test;
 
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 /**
  * @author wys
  * @date 2022/3/29
@@ -8,33 +13,25 @@ public class BitTest {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        solution.maxRotateFunction(new int[]{1,2,3,4});
     }
+
     static class Solution {
-        public int maxRotateFunction(int[] nums) {
-            int res = getSum(nums);
-            int num = 0;
-            for(int i=0;i<nums.length;i++) {
-                num += nums[i];
+        public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+            int[] res = new int[nums1.length];
+            Deque<Integer> stack = new LinkedList<>();
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = nums2.length - 1; i >= 0; i--) {
+                int x = nums2[i];
+                while (!stack.isEmpty() && stack.getFirst() < x) {
+                    stack.pop();
+                }
+                map.put(x, !stack.isEmpty() ? stack.getFirst() : -1);
+                stack.push(x);
             }
-            int i = 0;
-            while(i<nums.length - 1) {
-                i++;
-                int sum = (res - num)- ((nums.length-1) * nums[nums.length - i - 1]);
-                res = Math.max(res, sum);
+            for (int i = 0; i < nums1.length; i++) {
+                res[i] = map.getOrDefault(nums1[i], -1);
             }
             return res;
-        }
-        //1 2 3 4
-        //0 * 1 + 1 * 2 + 2 * 3 + 3 * 4   2 +6 + 12 = 20
-        // 0 * 4 + 1 * 1 + 2 * 2 + 3 * 3 20 - 10 - 6 = 14
-        // 0  * 3 + 1 * 4 + 2 * 1 + 3 * 2
-        private int getSum(int[] arr) {
-            int sum = 0;
-            for(int i=0;i<arr.length;i++) {
-                sum += i * arr[i];
-            }
-            return sum;
         }
     }
 }
