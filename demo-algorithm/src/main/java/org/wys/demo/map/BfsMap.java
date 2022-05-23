@@ -55,13 +55,13 @@ public class BfsMap {
         Deque<Integer> deque = new LinkedList<>();
         vis[n] = true;
         //尾进头拿
-        deque.add(n);
+        deque.addLast(n);
         while(!deque.isEmpty()) {
-            int m = deque.pop();
+            int m = deque.pollFirst();
             System.out.print(m + " ");
             for(int i=0;i<nv;i++) {
                 if(!vis[i] && map[m][i]!=INF) {
-                    deque.add(i);
+                    deque.addLast(i);
                     vis[i] = true;
                 }
             }
