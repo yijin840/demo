@@ -62,7 +62,6 @@ public class SpringBootDemoApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        new HashMap<>()
         System.setProperty("aaa","123");
         String localAddress = RemotingUtil.getLocalAddress();
         System.out.println("local" + localAddress);
