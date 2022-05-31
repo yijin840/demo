@@ -10,9 +10,9 @@ import java.util.Date;
  * @author wys
  * @date 2022/5/31
  */
-public class BeanProperty {
+public class BeanProperty<T> {
 
-    private Object bean;
+    private T bean;
 
     private CacheStrategy cacheStrategy;
 
@@ -20,11 +20,11 @@ public class BeanProperty {
 
     private LocalDateTime endTime;
 
-    public Object getBean() {
+    public T getBean() {
         return bean;
     }
 
-    public void setBean(Object bean) {
+    public void setBean(T bean) {
         this.bean = bean;
     }
 

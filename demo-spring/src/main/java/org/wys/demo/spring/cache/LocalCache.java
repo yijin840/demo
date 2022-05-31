@@ -26,6 +26,7 @@ public interface LocalCache<T> {
      * 缓存失效时间
      * @param key 缓存key
      * @param t 失效时间
+     * @param unit 单位
      */
-    void setExpire(String key, TimeUnit t);
+    void setExpire(String key, TimeUnit unit, int t);
 }
