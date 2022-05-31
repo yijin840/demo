@@ -1,5 +1,5 @@
 server:
-  port: 8070
+  port: 8078
 my:
   config:
     name: safsadf
@@ -24,10 +24,10 @@ spring:
     host: 118.31.251.1
     password: 123456
     port: 6379
-  #  cloud:
+#  cloud:
 #    nacos:
 #      discovery:
-#        server-addr: 127.0.0.1:8848
+#        server-addr: 118.31.251.1:8848
 #    gateway:
 #      routes:
 #        - id: url-proxy-1

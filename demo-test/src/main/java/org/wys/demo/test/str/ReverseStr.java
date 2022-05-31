@@ -1,5 +1,9 @@
 package org.wys.demo.test.str;
 
+import com.google.common.base.Strings;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 
 /**
@@ -8,10 +12,45 @@ import java.util.Locale;
  */
 public class ReverseStr {
     public static void main(String[] args) {
-        String fliggy = reverse("fliggyWelcome yggilf 123fliggy123 FLIGGY to ABfliggySHDfliggyAD!fliggy", "fliggy");
-        System.out.println(fliggy);
-        System.out.println("!DAfliggyDHSfliggyBA OT YGGILF 321fliggy321 FLIGGY EMOCLEW");
-        System.out.println(fliggy.equals("!DAfliggyDHSfliggyBA OT YGGILF 321fliggy321 FLIGGY EMOCLEW"));
+        long x1 = System.currentTimeMillis();
+//        System.out.println(x1);
+        String base = "Welcome yggilf 123fliggy123 fliggy to ABfliggySHDfliggyAD!";
+        String fliggy = "fliggy";
+        for (int i = 0; i < 10000; i++) {
+            base = getString(base, fliggy);
+//            String fliggy = reverse(base, "fliggy");
+//            System.out.println(fliggy);
+//            System.out.println("!DAfliggyDHSfliggyBA OT YGGILF 321fliggy321 FLIGGY EMOCLEW");
+//            System.out.println("Welcome yggilf 123fliggy123 FLIGGY to ABfliggySHDfliggyAD!");
+//            System.out.println(fliggy.equals("!DAfliggyDHSfliggyBA OT YGGILF 321fliggy321 FLIGGY EMOCLEW"));
+        }
+        System.out.println(System.currentTimeMillis() - x1);
+
+
+//
+    }
+
+    @NotNull
+    private static String getString(String base, String fliggy) {
+        base = base.replaceAll(fliggy, "###");
+        char[] chars = base.toCharArray();
+        char[] changeChar = changeChar(chars);
+        String x = new String(changeChar);
+        String reverse = StringUtils.reverse(x);
+        reverse = reverse.replaceAll("###", fliggy);
+//        System.out.println(reverse);
+        return base;
+    }
+
+    private static char[] changeChar(char[] chars) {
+        char[] result = chars;
+        for (int i = 0; i < chars.length; i++) {
+            char aChar = chars[i];
+            if (97 <= aChar &&  aChar <= 122) {
+                result[i] = (char) (aChar - 32);
+            }
+        }
+        return result;
     }
 
     private static String reverse(String s1, String s2) {

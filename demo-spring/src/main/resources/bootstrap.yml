@@ -1,0 +1,45 @@
+server:
+  port: 8078
+my:
+  config:
+    name: safsadf
+    value: 123
+    url: test
+    rocketStatus: false
+    isAccess: true
+    isMock: true
+
+spring:
+  application:
+    name: nacos-provider
+  datasource:
+    username: root
+    url: jdbc:mysql://118.31.251.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.jdbc.Driver
+    password: wang123
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 118.31.251.1
+    password: 123456
+    port: 6379
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 118.31.251.1:8848
+  #    gateway:
+  #      routes:
+  #        - id: url-proxy-1
+  #          uri: https://blog.csdn.net
+  #          predicates:
+  #            - Path=/csdn
+
+  context:
+    listener:
+      classes: org.wys.demo.spring.event.UserEven
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
