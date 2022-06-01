@@ -16,13 +16,13 @@ spring:
     username: root
     url: jdbc:mysql://118.31.251.1:3306/longge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     driver-class-name: com.mysql.jdbc.Driver
-    password: wang123
+    password: ${DB_PASSWORD:}
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   redis:
     host: 118.31.251.1
-    password: 123456
+    password: ${REDIS_PASSWORD:}
     port: 6379
 #  cloud:
 #    nacos:
