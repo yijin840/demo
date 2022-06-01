@@ -12,9 +12,10 @@ import org.wys.demo.design.other.response.SimpleResponse;
  * @author wys
  * @date 2022/6/1
  */
+@SuppressWarnings("unchecked")
 public class ServiceClient {
 
-    public static <T extends BaseResponse> T service(CallBackRequest request) {
+    public static <T extends BaseResponse> T service(CallBackRequest<? extends BaseRequest, ? extends BaseResponse> request) {
         //String post = HttpUtil.post("localhost:8080/123", JSON.toJSONString(request));
         String post = "";
         BaseResponse baseResponse = new SimpleResponse();

@@ -1,5 +1,6 @@
 package org.wys.demo.design.other;
 
+import org.wys.demo.design.other.request.BaseRequest;
 import org.wys.demo.design.other.response.BaseResponse;
 
 /**
@@ -10,7 +11,7 @@ import org.wys.demo.design.other.response.BaseResponse;
 public class SimpleResponseCallBack implements ResponseCallBack {
 
     @Override
-    public <T extends BaseResponse> T callback(CallBackRequest request) throws RuntimeException {
+    public <T extends BaseResponse> T callback(CallBackRequest<? extends BaseRequest, ? extends BaseResponse> request) throws RuntimeException {
         return ServiceClient.service(request);
     }
 }

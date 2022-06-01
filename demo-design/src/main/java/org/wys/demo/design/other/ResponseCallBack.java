@@ -1,6 +1,7 @@
 package org.wys.demo.design.other;
 
 import org.wys.demo.design.other.request.AbstractRequest;
+import org.wys.demo.design.other.request.BaseRequest;
 import org.wys.demo.design.other.response.AbstractResponse;
 import org.wys.demo.design.other.response.BaseResponse;
 
@@ -18,6 +19,6 @@ public interface ResponseCallBack {
      * @return 回调
      * @throws RuntimeException 运行时异常
      */
-    <T extends BaseResponse> T callback(CallBackRequest request) throws RuntimeException;
+    <T extends BaseResponse> T callback(CallBackRequest<? extends BaseRequest, ? extends BaseResponse> request) throws RuntimeException;
 
 }
