@@ -18,6 +18,8 @@ public class CallBackTest {
         CallBackRequest<BaseRequest, BaseResponse> request = new CallBackRequest<>();
         //response
         SimpleResponseCallBack simpleResponseCallBack = new SimpleResponseCallBack();
+        request.setRspClass(BaseResponse.class);
+        request.setRequest(baseRequest);
         BaseResponse callback = simpleResponseCallBack.callback(request);
         System.out.println(callback);
     }
