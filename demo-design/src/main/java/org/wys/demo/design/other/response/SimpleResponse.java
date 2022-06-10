@@ -27,11 +27,7 @@ public class SimpleResponse extends BaseResponse {
     private static final long serialVersionUID = -3727680121138319629L;
 
     public static void main(String[] args) throws IOException {
-        Random r = new Random();
-        for (int i = 0; i < 10; i++) {
-            double v = r.nextDouble() * (new Random().nextBoolean()?-1:1);
-            System.out.println(v);
-        }
+        System.out.println("123456");
     }
 
 }
