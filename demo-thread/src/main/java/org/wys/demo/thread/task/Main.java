@@ -1,8 +1,12 @@
 package org.wys.demo.thread.task;
 
 import okhttp3.OkHttpClient;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author wys
@@ -10,6 +14,6 @@ import java.util.HashMap;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     }
 }
