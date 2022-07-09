@@ -9,10 +9,10 @@ public class GateWayMain {
         Integer integer = 1;
         Integer integer1 = 2;
         synchronized (integer) {
-
+            System.out.println("123");
         }
         synchronized (integer1) {
-
+            System.out.println("23433");
         }
     }
 }

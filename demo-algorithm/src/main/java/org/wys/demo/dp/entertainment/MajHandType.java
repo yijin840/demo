@@ -1,4 +1,4 @@
-package org.wys.demo.entertainment;
+package org.wys.demo.dp.entertainment;
 
 /**
  * @author wys

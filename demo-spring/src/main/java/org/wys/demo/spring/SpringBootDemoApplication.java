@@ -73,6 +73,7 @@ public class SpringBootDemoApplication implements ApplicationRunner {
         NamedThreadLocal<String> namedThreadLocal = new NamedThreadLocal<>("aaa");
         namedThreadLocal.set("aaa");
         System.out.println(namedThreadLocal.get());
+
         myService.doHandler();
     }
 
