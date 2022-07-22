@@ -1,7 +1,7 @@
 package org.wys.demo.test.transactional;
 
 import com.google.common.collect.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.*;

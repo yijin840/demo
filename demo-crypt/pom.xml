@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-test</artifactId>
+    <artifactId>demo-crypt</artifactId>
+    <groupId>org.demo</groupId>
+    <version>${parent.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -21,8 +23,19 @@
             <artifactId>demo-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.demo</groupId>
-            <artifactId>demo-crypt</artifactId>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk16 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcmail-jdk15on</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
     </dependencies>
 </project>

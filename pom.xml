@@ -27,6 +27,7 @@
         <module>demo-algorithm</module>
         <module>demo-gateway</module>
         <module>demo-io</module>
+        <module>demo-crypt</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -71,10 +72,16 @@
                 <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
                 <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
                 <spring-boot.version>2.5.12</spring-boot.version>
+                <jansi.version>2.4.0</jansi.version>
+                <log4j.version>1.2.17</log4j.version>
+                <slf4j.version>1.7.36</slf4j.version>
+                <bc.version>1.70</bc.version>
+                <junit5.version>5.8.2</junit5.version>
             </properties>
         </profile>
     </profiles>
     <dependencies>
+
         <!-- https://www.KuMaPai.com/open/com.alibaba/easyexcel -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -195,10 +202,21 @@
             <version>${seata.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>${junit.version}</version>-->
+<!--        </dependency>-->
+        <!--junit5-->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit5.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>${jansi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -315,6 +333,22 @@
                 <groupId>org.demo</groupId>
                 <artifactId>demo-mq</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.demo</groupId>
+                <artifactId>demo-crypt</artifactId>
+                <version>${parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>${bc.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk16 -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcmail-jdk15on</artifactId>
+                <version>${bc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
